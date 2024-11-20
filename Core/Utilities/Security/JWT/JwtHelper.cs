@@ -17,7 +17,7 @@ namespace Core.Utilities.Security.JWT
     public class JwtHelper : ITokenHelper
     {
         public IConfiguration Configuration { get; }
-        private TokenOptions _tokenOptions;
+        private readonly TokenOptions _tokenOptions;
         private DateTime _accessTokenExpiration;
 
         public JwtHelper(IConfiguration configuration)
@@ -34,9 +34,20 @@ namespace Core.Utilities.Security.JWT
             }
 
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
+
+            // Güvenlik anahtarını oluştur ve uzunluğu kontrol et
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
-            var signingCredentails = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
-            var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentails, operationClaims);
+
+            if (Encoding.UTF8.GetBytes(_tokenOptions.SecurityKey).Length < 64)
+            {
+                throw new ArgumentException("Security key must be at least 64 characters long for HMAC-SHA512.");
+            }
+
+            // İmzalama kimlik bilgilerini oluştur
+            var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
+
+            // JWT'yi oluştur
+            var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, operationClaims);
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var token = jwtSecurityTokenHandler.WriteToken(jwt);
 

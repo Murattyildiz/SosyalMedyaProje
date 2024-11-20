@@ -33,7 +33,6 @@ namespace Web_Api.Controllers
             IResult result = _topicService.Add(topic);
             return result.Success ? Ok(result) : BadRequest(result);
         }
-
         [HttpPut("update")]
         public ActionResult Update(Topic topic)
         {

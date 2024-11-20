@@ -1,7 +1,6 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Business.DependencyResolvers.Autofac;
-
 using Core.DependencyResolvers;
 using Core.Extensions;
 using Core.Extensions.Exception;

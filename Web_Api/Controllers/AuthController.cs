@@ -1,6 +1,7 @@
 ﻿
 using Business.Abstract;
 using Entities.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,17 +17,21 @@ namespace Web_Api.Controllers
         {
             _authService = authService;
         }
+
+        [AllowAnonymous]
         [HttpPost("login")]
         public IActionResult Login(UserForLoginDto userForLoginDto)
         {
             var userTologin = _authService.Login(userForLoginDto);
-            if (userTologin.Success)
+            if (!userTologin.Success)
             {
                 return BadRequest(userTologin);
             }
             var result = _authService.CreateAccessToken(userTologin.Data);
             return result.Success ? Ok(result) : BadRequest(result);
         }
+
+        [AllowAnonymous]
         [HttpPost("register")]
         public IActionResult Register(UserForRegisterDto userForRegisterDto)
         {
