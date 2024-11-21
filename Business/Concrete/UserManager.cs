@@ -27,15 +27,15 @@ namespace Business.Concrete
     {
         private readonly IUserDal _userDal;
         private readonly IUserImageService _userImageService;
-        private readonly IArticleService _articleService;
+        private readonly IIcerikService _icerikService;
         private readonly IUserOperationClaimService _userOperationClaimService;
         private readonly ICommentService _commentService;
 
-        public UserManager(IUserDal userDal, IUserImageService userImageService, IArticleService articleService, IUserOperationClaimService userOperationClaimService, ICommentService commentService)
+        public UserManager(IUserDal userDal, IUserImageService userImageService, IIcerikService icerikService, IUserOperationClaimService userOperationClaimService, ICommentService commentService)
         {
             _userDal = userDal;
             _userImageService = userImageService;
-            _articleService = articleService;
+            _icerikService = icerikService;
             _userOperationClaimService = userOperationClaimService;
             _commentService = commentService;
         }
@@ -84,10 +84,10 @@ namespace Business.Concrete
             var deletedUser = _userDal.Get(x => x.Id == userId);
             _userImageService.DeleteAllImagesOfUserByUserId(userId);
 
-            var userArticles = _articleService.GetArticleDetailsByUserId(userId);
-            foreach (var item in userArticles.Data)
+            var userIceriks = _icerikService.GetIcerikDetailsByUserId(userId);
+            foreach (var item in userIceriks.Data)
             {
-                _articleService.Delete(item.Id);
+                _icerikService.Delete(item.Id);
             }
 
             _commentService.AllCommentDeleteByUserId(userId);

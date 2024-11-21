@@ -18,7 +18,7 @@ namespace Web_Api.Controllers
             _authService = authService;
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [HttpPost("login")]
         public IActionResult Login(UserForLoginDto userForLoginDto)
         {
@@ -31,7 +31,7 @@ namespace Web_Api.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("register")]
         public IActionResult Register(UserForRegisterDto userForRegisterDto)
         {

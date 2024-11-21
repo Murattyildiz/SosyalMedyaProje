@@ -14,16 +14,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.Entityframework
 {
-    public class EfArticleDal : EfEntityRepositoryBase<Article, SocialMediaContext>, IArticleDal
+    public class EfIcerikDal : EfEntityRepositoryBase<Icerik, SocialMediaContext>, IIcerikDal
     {
-        public List<ArticleDetailDto> GetArticleDetails(Expression<Func<ArticleDetailDto, bool>> filter=null)
+        public List<IcerikDetailDto> GetIcerikDetails(Expression<Func<IcerikDetailDto, bool>> filter=null)
         {
             using (var context = new SocialMediaContext())
             {
-                var result = from A in context.Articles
+                var result = from A in context.Iceriks
                              join T in context.Topics on A.TopicId equals T.Id
                              join U in context.Users on A.UserId equals U.Id
-                             select new ArticleDetailDto
+                             select new IcerikDetailDto
                              {
                                  Id = A.Id,
                                  TopicId = A.TopicId,
@@ -38,26 +38,26 @@ namespace DataAccess.Concrete.Entityframework
                                  CommentDetails = ((from C in context.Comments
                                                     join User in context.Users on C.UserId equals User.Id
                                                     join uimg in context.UserImages on C.UserId equals uimg.UserId
-                                                    where (A.Id == C.ArticleId)
+                                                    where (A.Id == C.IcerikId)
                                                     select new CommentDetail
                                                     {
                                                         Id = C.Id,
-                                                        ArticleId = C.ArticleId,
+                                                        IcerikId = C.IcerikId,
                                                         CommentText = C.CommentText,
                                                         UserId = C.UserId,
                                                         UserName = User.FirstName + " " + User.LastName,
                                                         Image= uimg.ImagePath,
                                                         CommentDate = C.CommentDate,
                                                         Status = C.Status
-                                                    }).ToList()).Count == 0 ? new List<CommentDetail> { new CommentDetail { Id = -1, ArticleId = -1, CommentText = "Henüz yorum yapılmadı", CommentDate = DateTime.Now, UserId = -1, UserName = "", Image= "images/default.jpg" } }
+                                                    }).ToList()).Count == 0 ? new List<CommentDetail> { new CommentDetail { Id = -1, IcerikId = -1, CommentText = "Henüz yorum yapılmadı", CommentDate = DateTime.Now, UserId = -1, UserName = "", Image= "images/default.jpg" } }
                                             : (from C in context.Comments
                                                join User in context.Users on C.UserId equals User.Id
                                                join uimg in context.UserImages on C.UserId equals uimg.UserId
-                                               where (A.Id == C.ArticleId)
+                                               where (A.Id == C.IcerikId)
                                                select new CommentDetail
                                                {
                                                    Id = C.Id,
-                                                   ArticleId = C.ArticleId,
+                                                   IcerikId = C.IcerikId,
                                                    UserName = User.FirstName + " " + User.LastName,
                                                    Image = uimg.ImagePath,
                                                    CommentText = C.CommentText,
@@ -71,14 +71,14 @@ namespace DataAccess.Concrete.Entityframework
             }
         }
 
-        public ArticleDetailDto GetArticleDetailsById(Expression<Func<ArticleDetailDto, bool>> filter)
+        public IcerikDetailDto GetIcerikDetailsById(Expression<Func<IcerikDetailDto, bool>> filter)
         {
             using (var context = new SocialMediaContext())
             {
-                var result = from A in context.Articles
+                var result = from A in context.Iceriks
                              join T in context.Topics on A.TopicId equals T.Id
                              join U in context.Users on A.UserId equals U.Id
-                             select new ArticleDetailDto
+                             select new IcerikDetailDto
                              {
                                  Id = A.Id,
                                  TopicId = A.TopicId,
@@ -94,26 +94,26 @@ namespace DataAccess.Concrete.Entityframework
                                  CommentDetails = ((from C in context.Comments
                                                     join User in context.Users on C.UserId equals User.Id
                                                     join uimg in context.UserImages on C.UserId equals uimg.UserId
-                                                    where (A.Id == C.ArticleId)
+                                                    where (A.Id == C.IcerikId)
                                                     select new CommentDetail
                                                     {
                                                         Id = C.Id,
-                                                        ArticleId = C.ArticleId,
+                                                        IcerikId = C.IcerikId,
                                                         CommentText = C.CommentText,
                                                         UserId = C.UserId,
                                                         UserName = User.FirstName + " " + User.LastName,
                                                         Image = uimg.ImagePath,
                                                         CommentDate = C.CommentDate,
                                                         Status = C.Status
-                                                    }).ToList()).Count == 0 ? new List<CommentDetail> { new CommentDetail { Id = -1, ArticleId = -1, CommentText = "Henüz yorum yapılmadı", CommentDate = DateTime.Now, UserId = -1, UserName = "", Image = "images/default.jpg" } }
+                                                    }).ToList()).Count == 0 ? new List<CommentDetail> { new CommentDetail { Id = -1, IcerikId = -1, CommentText = "Henüz yorum yapılmadı", CommentDate = DateTime.Now, UserId = -1, UserName = "", Image = "images/default.jpg" } }
                                             : (from C in context.Comments
                                                join User in context.Users on C.UserId equals User.Id
                                                join uimg in context.UserImages on C.UserId equals uimg.UserId
-                                               where (A.Id == C.ArticleId)
+                                               where (A.Id == C.IcerikId)
                                                select new CommentDetail
                                                {
                                                    Id = C.Id,
-                                                   ArticleId = C.ArticleId,
+                                                   IcerikId = C.IcerikId,
                                                    UserName = User.FirstName + " " + User.LastName,
                                                    Image = uimg.ImagePath,
                                                    CommentText = C.CommentText,

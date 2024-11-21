@@ -128,7 +128,7 @@ namespace DataAccess.Migrations
                     b.ToTable("UserOperationClaims");
                 });
 
-            modelBuilder.Entity("Entities.Concrete.Article", b =>
+            modelBuilder.Entity("Entities.Concrete.Icerik", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -154,7 +154,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Articles");
+                    b.ToTable("Iceriks");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Comment", b =>
@@ -165,7 +165,7 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ArticleId")
+                    b.Property<int>("IcerikId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CommentDate")

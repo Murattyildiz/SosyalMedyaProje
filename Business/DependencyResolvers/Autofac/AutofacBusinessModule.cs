@@ -33,8 +33,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<VerificationCodeManager>().As<IVerificationCodeService>().SingleInstance();
             builder.RegisterType<EfVerificationCodeDal>().As<IVerificationCodeDal>().SingleInstance();
 
-            builder.RegisterType<ArticleManager>().As<IArticleService>().SingleInstance();
-            builder.RegisterType<EfArticleDal>().As<IArticleDal>().SingleInstance();
+            builder.RegisterType<IcerikManager>().As<IIcerikService>().SingleInstance();
+            builder.RegisterType<EfIcerikDal>().As<IIcerikDal>().SingleInstance();
 
             builder.RegisterType<CommentManager>().As<ICommentService>().SingleInstance();
             builder.RegisterType<EfCommentleDal>().As<ICommentDal>().SingleInstance();

@@ -13,12 +13,12 @@ namespace DataAccess.Concrete.Entityframework
         //{
         //    using (var context = new SocialMediaContext())
         //    {
-        //        var result = from A in context.Articles
-        //                     join C in context.Comments on A.Id equals C.ArticleId
+        //        var result = from A in context.Iceriks
+        //                     join C in context.Comments on A.Id equals C.IcerikId
         //                     select new CommentDetail
         //                     {
         //                         Id = C.Id,
-        //                         ArticleId
+        //                         IcerikId
         //                     };
                              
         //    }

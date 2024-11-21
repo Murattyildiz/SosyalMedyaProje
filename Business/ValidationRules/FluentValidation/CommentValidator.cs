@@ -13,7 +13,7 @@ namespace Business.ValidationRules.FluentValidation
         public CommentValidator()
         {
             RuleFor(x => x.UserId).NotNull();
-            RuleFor(x => x.ArticleId).NotNull();
+            RuleFor(x => x.IcerikId).NotNull();
             RuleFor(x => x.CommentText).NotNull();
             RuleFor(x => x.CommentText).NotEmpty();
         }

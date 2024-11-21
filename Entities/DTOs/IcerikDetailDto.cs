@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs
 {
-    public class ArticleDetailDto:IDto
+    public class IcerikDetailDto:IDto
     {
         public int Id { get; set; }
         public int TopicId { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Article : IEntity
+    public class Icerik : IEntity
     {
         public int Id { get; set; }
         public int TopicId { get; set; }

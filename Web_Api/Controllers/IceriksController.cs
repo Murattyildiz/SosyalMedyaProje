@@ -11,65 +11,65 @@ namespace Web_Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ArticlesController : ControllerBase
+    public class IceriksController : ControllerBase
     {
-        private readonly IArticleService _articleService;
+        private readonly IIcerikService _icerikService;
 
-        public ArticlesController(IArticleService articleService) => _articleService = articleService ?? throw new ArgumentNullException(nameof(articleService));
+        public IceriksController(IIcerikService icerikService) => _icerikService = icerikService ?? throw new ArgumentNullException(nameof(icerikService));
 
-        [HttpGet("getarticlewithdetails")]
+        [HttpGet("geticerikwithdetails")]
         public ActionResult GetDetails()
         {
-            IDataResult<List<ArticleDetailDto>> result = _articleService.GetArticleDetails();
+            IDataResult<List<IcerikDetailDto>> result = _icerikService.GetIcerikDetails();
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpGet("getarticlewithdetailsbyid")]
+        [HttpGet("geticerikwithdetailsbyid")]
         public ActionResult GetDetailsById(int id)
         {
-            IDataResult<ArticleDetailDto> result = _articleService.GetArticleDetailsById(id);
+            IDataResult<IcerikDetailDto> result = _icerikService.GetIcerikDetailsById(id);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpGet("getarticlewithdetailsbyuserid")]
+        [HttpGet("geticerikwithdetailsbyuserid")]
         public ActionResult GetDetailsByUserId(int id)
         {
-            IDataResult<List<ArticleDetailDto>> result = _articleService.GetArticleDetailsByUserId(id);
+            IDataResult<List<IcerikDetailDto>> result = _icerikService.GetIcerikDetailsByUserId(id);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpGet("getall")]
         public ActionResult GetAll()
         {
-            IDataResult<List<Article>> result = _articleService.GetAll();
+            IDataResult<List<Icerik>> result = _icerikService.GetAll();
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpGet("getbyid")]
         public ActionResult GetById(int id)
         {
-            IDataResult<Article> result = _articleService.GetEntityById(id);
+            IDataResult<Icerik> result = _icerikService.GetEntityById(id);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpPost("add")]
-        public ActionResult Add(Article article)
+        public ActionResult Add(Icerik icerik)
         {
-            IResult result = _articleService.Add(article);
+            IResult result = _icerikService.Add(icerik);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpPost("update")]
-        public ActionResult Update(Article article)
+        public ActionResult Update(Icerik icerik)
         {
-            IResult result = _articleService.Update(article);
+            IResult result = _icerikService.Update(icerik);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpDelete("delete")]
         public ActionResult Delete(int id)
         {
-            IResult result = _articleService.Delete(id);
+            IResult result = _icerikService.Delete(id);
             return result.Success ? Ok(result) : BadRequest(result);
         }
     }

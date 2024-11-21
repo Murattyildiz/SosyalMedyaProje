@@ -12,7 +12,7 @@ namespace DataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Articles",
+                name: "Iceriks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -25,7 +25,7 @@ namespace DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Articles", x => x.Id);
+                    table.PrimaryKey("PK_Iceriks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -34,7 +34,7 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ArticleId = table.Column<int>(type: "int", nullable: false),
+                    IcerikId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     CommentText = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CommentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -142,7 +142,7 @@ namespace DataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Articles");
+                name: "Iceriks");
 
             migrationBuilder.DropTable(
                 name: "Comments");

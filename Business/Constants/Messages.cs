@@ -12,11 +12,11 @@ namespace Business.Constants
     {
         public static string UserClaimNotFound = "Kullanıcı yetkisi bulunamadı";
         public static string UsersListed = "Kullanıcılar Listelendi";
-        public static string Article_Add = "Paylaşım yapıldı";
-        public static string Article_Edit = "Paylaşım Düzenlendi";
-        public static string Article_Deleted = "içerik silindi";
-        public static string Articles_Listed = "içerikler listelendi";
-        public static string Article_Listed = "içerik listelendi";
+        public static string Icerik_Add = "Paylaşım yapıldı";
+        public static string Icerik_Edit = "Paylaşım Düzenlendi";
+        public static string Icerik_Deleted = "icerik silindi";
+        public static string Iceriks_Listed = "icerikler listelendi";
+        public static string Icerik_Listed = "icerik listelendi";
         public static string Comment_Add = "yorum yapıldı";
         public static string Comment_Delete = "yorum silindi";
         public static string Comment_Update = "yorum güncellendi";
@@ -40,7 +40,7 @@ namespace Business.Constants
         public static string userDeleted = "Kullanıcı silindi";
         public static string UserAdded = "Kullanıcı eklendi";
         public static string AuthorizationDenied = "Bu işlemi yapabilmek için yetkiniz yok";
-        public static string ArticleWithDetailListed = "Paylaşımlar ve yorumları listelendi";
+        public static string IcerikWithDetailListed = "Paylaşımlar ve yorumları listelendi";
         public static string UserImageLimitExceeded = "";
         public static string GetDefaultImage = "varsayılan görsel getirildi";
         public static string UserImageAdded = "kullanıcı görseli eklendi";
@@ -65,7 +65,7 @@ namespace Business.Constants
         public static string ClaimDeleted = "Yetki silindi";
         public static string UserClaimDeleted = "Kullanıcı Yetkisi Kaldırıldı";
         public static string UserImageIdExist;
-        public static string ArticleNotFound;
+        public static string IcerikNotFound;
         public static string CommentNotFound;
         public static string ClaimExist;
         public static string ClaimNotFound;

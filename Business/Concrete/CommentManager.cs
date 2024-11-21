@@ -48,7 +48,7 @@ namespace Business.Concrete
                     var comment = new Comment
                     {
                         UserId = item.UserId,
-                        ArticleId = item.ArticleId,
+                        IcerikId = item.IcerikId,
                         CommentDate = item.CommentDate,
                         CommentText = item.CommentText,
                         Id = item.Id,
@@ -87,9 +87,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(),Messages.Comments_Listed);
         }
 
-        public IDataResult<List<Comment>> GetbyArticleId(int id)
+        public IDataResult<List<Comment>> GetbyIcerikId(int id)
         {
-            return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(x => x.ArticleId == id), Messages.Comments_List);
+            return new SuccessDataResult<List<Comment>>(_commentDal.GetAll(x => x.IcerikId == id), Messages.Comments_List);
         }
 
         public IDataResult<Comment> GetEntityById(int id)
