@@ -24,14 +24,14 @@ namespace Web_Api.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpGet("getıcerikwithdetailsbyid")]
+        [HttpGet("geticerikwithdetailsbyid")]
         public ActionResult GetDetailsById(int id)
         {
             IDataResult<IcerikDetailDto> result = _ıcerikService.GetIcerikDetailsById(id);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpGet("getıcerikwithdetailsbyuserid")]
+        [HttpGet("geticerikwithdetailsbyuserid")]
         public ActionResult GetDetailsByUserId(int id)
         {
             IDataResult<List<IcerikDetailDto>> result = _ıcerikService.GetIcerikDetailsByUserId(id);
