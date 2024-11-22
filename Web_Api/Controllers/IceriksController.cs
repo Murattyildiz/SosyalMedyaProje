@@ -17,7 +17,7 @@ namespace Web_Api.Controllers
 
         public IceriksController(IIcerikService ıcerikService) => _ıcerikService = ıcerikService ?? throw new ArgumentNullException(nameof(ıcerikService));
 
-        [HttpGet("getıcerikwithdetails")]
+        [HttpGet("geticerikwithdetails")]
         public ActionResult GetDetails()
         {
             IDataResult<List<IcerikDetailDto>> result = _ıcerikService.GetIcerikDetails();

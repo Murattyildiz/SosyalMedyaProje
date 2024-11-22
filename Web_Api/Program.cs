@@ -84,7 +84,7 @@ if (app.Environment.IsDevelopment())
 
 app.ConfigureCustomExceptionMiddleware();
 
-
+app.UseCors(builder => builder.WithOrigins("http://localhost:5280/api/Iceriks/geticerikwithdetails").AllowAnyHeader());
 
 app.UseHttpsRedirection();
 app.UseRouting();
