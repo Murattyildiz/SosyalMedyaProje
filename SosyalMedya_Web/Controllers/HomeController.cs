@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SosyalMedya_Web.Models;
@@ -7,6 +8,8 @@ namespace SosyalMedya_Web.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize(Roles="admin")]
+        [HttpGet]
        public async Task<IActionResult> Index()
         {
             var httpClient = new HttpClient();
