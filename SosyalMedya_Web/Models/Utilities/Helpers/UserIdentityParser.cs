@@ -3,7 +3,7 @@ using System.Security.Claims;
 
 namespace SosyalMedya_Web.Models.Utilities.Helpers
 {
-    public class ExtractUserIdentityFromJwtToken
+    public class UserIdentityParser
     {
       public static int GetUserIdentityFromJwtToken(string jwtToken)
         {

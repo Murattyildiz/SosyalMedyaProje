@@ -37,8 +37,8 @@ namespace SosyalMedya_Web.Controllers
                 TempData["Message"] = userForLoginSuccess.Message;
                 TempData["Success"] = userForLoginSuccess.Success;
                 var JwtToken=userForLoginSuccess.Data.Token;
-                var roleClaims=ExtractRoleClaimsFromJwtToken.GetRoleClaims(JwtToken);
-                var userId=ExtractUserIdentityFromJwtToken.GetUserIdentityFromJwtToken(JwtToken);
+                var roleClaims= RoleClaimsParser.GetRoleClaims(JwtToken);
+                var userId= UserIdentityParser.GetUserIdentityFromJwtToken(JwtToken);
 
                 HttpContext.Session.SetInt32("UserId",userId);
 

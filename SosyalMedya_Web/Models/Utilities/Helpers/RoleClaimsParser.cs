@@ -3,7 +3,7 @@ using System.Security.Claims;
 
 namespace SosyalMedya_Web.Models.Utilities.Helpers
 {
-    public class ExtractRoleClaimsFromJwtToken
+    public class RoleClaimsParser
     {
         public static List<string> GetRoleClaims(string jwtToken)
         {
