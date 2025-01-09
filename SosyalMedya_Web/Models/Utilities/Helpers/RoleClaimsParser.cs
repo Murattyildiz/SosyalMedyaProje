@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace SosyalMedya_Web.Utilities.Helpers
+namespace SosyalMedya_Web.Models.Utilities.Helpers
 {
     public class RoleClaimsParser
     {

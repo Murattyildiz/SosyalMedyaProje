@@ -17,7 +17,7 @@ namespace SosyalMedya_Web.Controllers
            if(responseMessage.IsSuccessStatusCode)
             {
                 var jsonResponse = await responseMessage.Content.ReadAsStringAsync();
-                var apiDataResponse = JsonConvert.DeserializeObject<ApiListDataResponse<IcerikDetail>>(jsonResponse);
+                var apiDataResponse = JsonConvert.DeserializeObject<ApiDataResponse<IcerikDetail>>(jsonResponse);
 
                 return apiDataResponse.Success ? View(apiDataResponse.Data) : (IActionResult)View("Veri Gelmiyor");
             }
