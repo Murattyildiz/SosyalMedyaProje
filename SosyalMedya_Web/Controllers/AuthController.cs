@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SosyalMedya_Web.Models;
-using SosyalMedya_Web.Models.Utilities.Helpers;
+using SosyalMedya_Web.Utilities.Helpers;
 using System.Security.Claims;
 using System.Text;
 
@@ -79,10 +79,10 @@ namespace SosyalMedya_Web.Controllers
 
         }
 
-        private async Task<ApiAuthDataResponse<UserForLogin>> GetUserForLogin(HttpResponseMessage responseMessage)
+        private async Task<ApiDataResponse<UserForLogin>> GetUserForLogin(HttpResponseMessage responseMessage)
         {
             string responseContent=await responseMessage.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<ApiAuthDataResponse<UserForLogin>>(responseContent);
+            return JsonConvert.DeserializeObject<ApiDataResponse<UserForLogin>>(responseContent);
         }
     }
 }

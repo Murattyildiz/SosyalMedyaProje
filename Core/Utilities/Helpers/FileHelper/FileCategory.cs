@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Helpers.FileHelper
 {
+    //
     public class FileCategory
     {
         public string FolderName { get; set; }
